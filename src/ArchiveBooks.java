@@ -1,2 +1,2 @@
-package PACKAGE_NAME;public class ArchiveBooks {
+public class ArchiveBooks extends Book{
 }

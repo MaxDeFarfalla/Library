@@ -1,2 +1,3 @@
-package PACKAGE_NAME;public class RestrictedBooks {
+public class RestrictedBooks extends ArchiveBooks{
+
 }

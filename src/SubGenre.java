@@ -1,2 +1,2 @@
-package PACKAGE_NAME;public class SubGenre {
+public class SubGenre extends Genre{
 }

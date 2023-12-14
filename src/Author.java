@@ -1,2 +1,7 @@
-package PACKAGE_NAME;public class Author {
+import java.util.ArrayList;
+
+public class Author {
+
+    private String name;
+    private ArrayList Books;
 }

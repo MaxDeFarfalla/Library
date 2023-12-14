@@ -1,2 +1,2 @@
-package PACKAGE_NAME;public class AudioBooks {
+public class AudioBooks extends Book{
 }
