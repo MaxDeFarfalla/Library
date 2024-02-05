@@ -6,6 +6,12 @@ public class Author {
     private ArrayList<Book> books = new ArrayList<Book>();
 
 
+    public Author(String name ){
+        this.name=name;
+
+    }
+
+
     public String getName() {
         return name;
     }
