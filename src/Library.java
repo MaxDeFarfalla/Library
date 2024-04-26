@@ -60,8 +60,11 @@ public class Library {
 
 
     private void borrowBook() {
+        //Ask for book, use answer to get book from hashmap
         Scanner bookScanner = new Scanner(System.in);
-        String answer = nameOfBook;
+        String answer;
+
+        //Check which book is wanted
 
         while (true) {
             System.out.println("What book do you want to borrow");
@@ -75,7 +78,7 @@ public class Library {
             //books
         }
 
-        if (bookHashMap.get(book.g)) {
+        if (bookHashMap.get(answer)) {
 
             System.out.println("Wish to borrow? " + Book.getName() + " of " + Book.getAuthor().getName());
             answer = bookScanner.nextLine().toLowerCase();
