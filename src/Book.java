@@ -17,13 +17,14 @@ public class Book {
             genre.addBook(this);
         }
 
-        Library.books.add(this);
+        Library.bookHashMap.put(this);
     }
 
 
     //Meth
 
 
-
-
+    public String getName() {
+        return name;
+    }
 }

@@ -1,10 +1,13 @@
 import java.time.LocalDate;
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class Library {
 
-    public static ArrayList<Book> books = new ArrayList<>();
+
+    public static HashMap<String, Book> bookHashMap= new HashMap<>();
+    Book book;
+    String nameOfBook;
 
     public static void Start() {
         Scanner libScanner = new Scanner(System.in);
@@ -21,10 +24,10 @@ public class Library {
 
 
 
-        books.add(new BorrowableBook("Lord Of The Rings", 0, new Author("JRR Tolkien"), new Genre[]{fantasy}));
-        books.add(new BorrowableBook("The Colour of magic", 250, new Author("Terry Pratchett"), new Genre[]{fantasy}));
+        bookHashMap.put("LOTR" , new BorrowableBook("Lord Of The Rings", 0, new Author("JRR Tolkien"), new Genre[]{fantasy}));
+        bookHashMap.put("The COlour of magic" ,new BorrowableBook("The Colour of magic", 250, new Author("Terry Pratchett"), new Genre[]{fantasy}));
 
-        System.out.println(books);
+        System.out.println(bookHashMap);
 
         boolean programRunning = true;
 
@@ -58,7 +61,7 @@ public class Library {
 
     private void borrowBook() {
         Scanner bookScanner = new Scanner(System.in);
-        String answer;
+        String answer = nameOfBook;
 
         while (true) {
             System.out.println("What book do you want to borrow");
@@ -72,9 +75,9 @@ public class Library {
             //books
         }
 
-        if (books.get()) {
+        if (bookHashMap.get(book.g)) {
 
-            System.out.println("Wish to borrow? " + book.getName() + " of " + book.getAuthor().getName());
+            System.out.println("Wish to borrow? " + Book.getName() + " of " + Book.getAuthor().getName());
             answer = bookScanner.nextLine().toLowerCase();
 
             if (answer.equals("y") || answer.equals("yes")) {

@@ -30,13 +30,14 @@ public class BorrowableBook extends Book {
         generateData();
 
 
-        if (dateOfReturn == null) {
+        if (available) {
 
             System.out.println("Wish to borrow? " + name + " of " + author.getName());
             answer = bookScanner.nextLine().toLowerCase();
 
             if (answer.equals("y") || answer.equals("yes")) {
                 dateOfReturn = LocalDate.now().plusDays(20);
+                available = false;
 
                 System.out.println("Hope you enjoy - Book is to be returned at latest " + dateOfReturn);
             } else {
