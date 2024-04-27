@@ -25,7 +25,7 @@ public class Library {
 
 
         bookHashMap.put("LOTR" , new BorrowableBook("Lord Of The Rings", 0, new Author("JRR Tolkien"), new Genre[]{fantasy}));
-        bookHashMap.put("The COlour of magic" ,new BorrowableBook("The Colour of magic", 250, new Author("Terry Pratchett"), new Genre[]{fantasy}));
+        bookHashMap.put("The Colour of magic" ,new BorrowableBook("The Colour of magic", 250, new Author("Terry Pratchett"), new Genre[]{fantasy}));
 
         System.out.println(bookHashMap);
 
@@ -64,12 +64,14 @@ public class Library {
         Scanner bookScanner = new Scanner(System.in);
         String answer;
 
+
         //Check which book is wanted
 
         while (true) {
             System.out.println("What book do you want to borrow");
             System.out.println("* Type return to return *");
             answer = bookScanner.nextLine().toLowerCase();
+            bookHashMap.get() = book;
 
             if (answer.equals("return")) {
                 return;
@@ -78,9 +80,9 @@ public class Library {
             //books
         }
 
-        if (bookHashMap.get(answer)) {
+        if (book) {
 
-            System.out.println("Wish to borrow? " + Book.getName() + " of " + Book.getAuthor().getName());
+            System.out.println("Wish to borrow? " + book.getName() + " of " + book.getAuthor().getName());
             answer = bookScanner.nextLine().toLowerCase();
 
             if (answer.equals("y") || answer.equals("yes")) {
