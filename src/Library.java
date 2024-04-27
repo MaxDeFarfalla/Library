@@ -77,11 +77,12 @@ public class Library {
         Scanner bookScanner = new Scanner(System.in);
         String answer;
         Boolean borrowable;
+        Boolean b= true;
 
 
         //Check which book is wanted
 
-        while (true) {
+        while (b) {
             System.out.println("What book do you want to borrow");
             System.out.println("* Type return to return *");
             answer = bookScanner.nextLine().toLowerCase();
@@ -92,7 +93,7 @@ public class Library {
                 return;
             }
 
-            //books
+            b= false;
         }
          //Sees if the book that is to be borrowed is borrowable
         do {
