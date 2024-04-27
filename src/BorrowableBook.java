@@ -70,7 +70,7 @@ public class BorrowableBook extends Book {
 
     private void generateData() {
         this.name = "test";
-        this.author = new Author();
+        this.author = new Author("Tester");
         this.pages = 1;
     }
 

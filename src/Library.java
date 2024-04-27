@@ -6,8 +6,8 @@ public class Library {
 
 
     public static HashMap<String, Book> bookHashMap= new HashMap<>();
-    Book book;
-    String nameOfBook;
+    static Book book;
+    static String nameOfBook;
 
     public static void Start() {
         Scanner libScanner = new Scanner(System.in);
@@ -22,14 +22,15 @@ public class Library {
 
         Genre fantasy = new Genre("Fantasy");
 
-
-
         bookHashMap.put("LOTR" , new BorrowableBook("Lord Of The Rings", 0, new Author("JRR Tolkien"), new Genre[]{fantasy}));
         bookHashMap.put("The Colour of magic" ,new BorrowableBook("The Colour of magic", 250, new Author("Terry Pratchett"), new Genre[]{fantasy}));
 
         System.out.println(bookHashMap);
 
         boolean programRunning = true;
+
+        //Kollar vad användaren vill göra
+        //Switch används för att underlätta vid alla alternativ
 
         while (programRunning) {
             System.out.println("1 - Browse collections");
@@ -43,6 +44,7 @@ public class Library {
 
                 }
                 case "2" -> {
+                 borrowBook();
                 }
                 case "3" -> {
                 }
@@ -59,7 +61,7 @@ public class Library {
     }
 
 
-    private void borrowBook() {
+    public static void borrowBook() {
         //Ask for book, use answer to get book from hashmap
         Scanner bookScanner = new Scanner(System.in);
         String answer;
@@ -71,7 +73,8 @@ public class Library {
             System.out.println("What book do you want to borrow");
             System.out.println("* Type return to return *");
             answer = bookScanner.nextLine().toLowerCase();
-            bookHashMap.get() = book;
+            nameOfBook = answer;
+            book = bookHashMap.get(nameOfBook);
 
             if (answer.equals("return")) {
                 return;
@@ -79,14 +82,14 @@ public class Library {
 
             //books
         }
-
-        if (book) {
+         //Sees if the book that is to be borrowed is borrowable
+        if (book.getClass() == BorrowableBook.class) {
 
             System.out.println("Wish to borrow? " + book.getName() + " of " + book.getAuthor().getName());
             answer = bookScanner.nextLine().toLowerCase();
 
             if (answer.equals("y") || answer.equals("yes")) {
-                book.getDateOfReturn() = LocalDate.now().plusDays(20);
+                book.setDateOfReturn() = LocalDate.now().plusDays(20);
 
                 System.out.println("Hope you enjoy - Book is to be returned at latest " + book.getDateOfReturn());
             } else {
@@ -98,4 +101,6 @@ public class Library {
         }
 
     }
+
+
 }

@@ -17,7 +17,7 @@ public class Book {
             genre.addBook(this);
         }
 
-        Library.bookHashMap.put(this);
+        Library.bookHashMap.put(this.name,this);
     }
 
 
@@ -27,4 +27,7 @@ public class Book {
     public String getName() {
         return name;
     }
+
+
+
 }
