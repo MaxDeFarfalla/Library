@@ -1,4 +1,3 @@
-import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -30,8 +29,8 @@ public class Library {
 
         boolean programRunning = true;
 
-        //Kollar vad användaren vill göra
-        //Switch används för att underlätta vid alla alternativ
+        //Checks what the user wants to do
+        //Switch is used to minimize if statement due to too many options
 
         while (programRunning) {
             System.out.println("1 - Browse collections");
@@ -76,8 +75,8 @@ public class Library {
         //Ask for book, use answer to get book from hashmap
         Scanner bookScanner = new Scanner(System.in);
         String answer;
-        Boolean borrowable;
-        Boolean b= true;
+
+        boolean b= true;
 
 
         //Check which book is wanted
@@ -109,9 +108,10 @@ public class Library {
                 System.out.println("Have a good day");
             }
 
-        }while (borrowable);
+        }while (borrowableBook.isAvailable());
 
-            if (borrowable = false){
+
+        if (!borrowableBook.isAvailable()){
             System.out.println("Not available - Have a good day");
         }
 
