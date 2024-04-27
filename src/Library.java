@@ -7,6 +7,7 @@ public class Library {
 
     public static HashMap<String, Book> bookHashMap= new HashMap<>();
     static Book book;
+    static BorrowableBook borrowableBook;
     static String nameOfBook;
 
     public static void Start() {
@@ -44,7 +45,10 @@ public class Library {
 
                 }
                 case "2" -> {
-                 borrowBook();
+                    //check if book is borrowableBook
+                    isBorrowableBook();
+                    borrowBook();
+
                 }
                 case "3" -> {
                 }
@@ -60,11 +64,19 @@ public class Library {
         System.out.println("Exiting...");
     }
 
+    private static void isBorrowableBook() {
+        if (book.getClass() == BorrowableBook.class){
+            borrowableBook = (BorrowableBook) book;
 
-    public static void borrowBook() {
+        }
+    }
+
+
+   private static void borrowBook() {
         //Ask for book, use answer to get book from hashmap
         Scanner bookScanner = new Scanner(System.in);
         String answer;
+        Boolean borrowable;
 
 
         //Check which book is wanted
@@ -83,20 +95,22 @@ public class Library {
             //books
         }
          //Sees if the book that is to be borrowed is borrowable
-        if (book.getClass() == BorrowableBook.class) {
+        do {
 
-            System.out.println("Wish to borrow? " + book.getName() + " of " + book.getAuthor().getName());
+            System.out.println("Wish to borrow? " + borrowableBook.getName() + " of " + borrowableBook.getAuthor().getName());
             answer = bookScanner.nextLine().toLowerCase();
 
             if (answer.equals("y") || answer.equals("yes")) {
-                book.setDateOfReturn() = LocalDate.now().plusDays(20);
+               borrowableBook.setDateofReturn();
 
-                System.out.println("Hope you enjoy - Book is to be returned at latest " + book.getDateOfReturn());
+                System.out.println("Hope you enjoy - Book is to be returned at latest " + borrowableBook.getDateOfReturn());
             } else {
                 System.out.println("Have a good day");
             }
 
-        } else {
+        }while (borrowable);
+
+            if (borrowable = false){
             System.out.println("Not available - Have a good day");
         }
 

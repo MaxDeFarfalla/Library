@@ -74,6 +74,7 @@ public class BorrowableBook extends Book {
         this.pages = 1;
     }
 
+
     public void borrow() {
         borrowBook();
     }

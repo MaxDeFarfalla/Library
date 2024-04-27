@@ -5,6 +5,7 @@ public class Book {
     protected int pages;
     protected Author author;
     protected Genre[] genres;
+    protected Boolean borrowable;
 
     //Constr
 
@@ -24,10 +25,20 @@ public class Book {
     //Meth
 
 
+    public void setBorrowable(Boolean borrowable, Class<Book> BorrowableBook) {
+        if (Book.class== BorrowableBook)
+        this.borrowable = borrowable;
+    }
+
     public String getName() {
         return name;
     }
 
+    public Author getAuthor() {
+        return author;
+    }
 
+    public void setDateofReturn() {
 
+    }
 }
