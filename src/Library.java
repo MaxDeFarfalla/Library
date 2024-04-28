@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class Library {
 
-
+        //Hashmap som sparar namnet på boken och boken. Namnet sparas sepparat för att underlätta att söka i hashmapen.
     public HashMap<String, Book> bookHashMap= new HashMap<>();
     private Book book = new Book("t",1,new Author("t"),new Genre("F"));
     private BorrowableBook borrowableBook;
@@ -108,6 +108,9 @@ public class Library {
            System.out.println("Not available - Have a good day");
        }
        System.out.println(borrowableBook.isAvailable());
+
+       //Kollar om boken är tillgänglig för att bli lånad
+       //If the book is borrowed then the return date is put with the method setDateOfReturn
 
        if (borrowableBook.isAvailable()){
 
