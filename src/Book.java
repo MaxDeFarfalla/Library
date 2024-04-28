@@ -19,6 +19,7 @@ public class Book {
         }
 
         library.bookHashMap.put(this.name,this);
+
     }
 
 
