@@ -5,7 +5,7 @@ public class Library {
 
 
     public HashMap<String, Book> bookHashMap= new HashMap<>();
-    private Book book = new Book("t",1,new Author("t"), new Genre[]{new Genre("t")});
+    private Book book = new Book("t",1,new Author("t"),new Genre("F"));
     private BorrowableBook borrowableBook;
     private String nameOfBook;
     private boolean b;
@@ -24,8 +24,8 @@ public class Library {
 
         Genre fantasy = new Genre("Fantasy");
 
-        bookHashMap.put("LOTR" , new BorrowableBook("Lord Of The Rings", 0, new Author("JRR Tolkien"), new Genre[]{fantasy}));
-        bookHashMap.put("THE COLOUR OF MAGIC" ,new BorrowableBook("The Colour of magic", 250, new Author("Terry Pratchett"), new Genre[]{fantasy}));
+        bookHashMap.put("LOTR" , new BorrowableBook("Lord Of The Rings", 1, new Author("JRR Tolkien"), fantasy));
+        bookHashMap.put("THE COLOUR OF MAGIC" ,new BorrowableBook("The Colour of magic", 250, new Author("Terry Pratchett"), fantasy));
 
         System.out.println(bookHashMap);
 
@@ -70,14 +70,15 @@ public class Library {
 
     private void isBorrowableBook() {
         if (book.getClass() == BorrowableBook.class){
-            borrowableBook = (BorrowableBook) book;
+            borrowableBook = new BorrowableBook(book.getName(),book.getPages(),book.getAuthor(), book.getGenre());
 
-        } else{
+        }
+        else{
             throw new RuntimeException();
         }
     }
 
-
+  //
    private void borrowBook() {
         //Ask for book, use answer to get book from hashmap
         Scanner bookScanner = new Scanner(System.in);
@@ -108,7 +109,7 @@ public class Library {
             answer = bookScanner.nextLine().toLowerCase();
 
             if (answer.equals("y") || answer.equals("yes")) {
-               borrowableBook.setDateofReturn();
+               borrowableBook.setDateOfReturn();
 
                 System.out.println("Hope you enjoy - Book is to be returned at latest " + borrowableBook.getDateOfReturn());
             } else {

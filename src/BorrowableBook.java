@@ -7,6 +7,8 @@ public class BorrowableBook extends Book {
     private LocalDate dateOfReturn;
     private boolean available = true;
 
+
+
     //Constr
 
     public LocalDate getDateOfReturn() {
@@ -17,8 +19,8 @@ public class BorrowableBook extends Book {
         this.dateOfReturn = dateOfReturn;
     }
 
-    public BorrowableBook(String name, int pages, Author author, Genre[] genres) {
-        super(name, pages, author, genres);
+    public BorrowableBook(String name, int pages, Author author, Genre genre) {
+        super(name, pages, author, genre);
     }
 
     //Meth
@@ -48,6 +50,10 @@ public class BorrowableBook extends Book {
             System.out.println("Not available - Have a good day");
         }
 
+    }
+
+    public void setDateOfReturn(){
+        dateOfReturn = LocalDate.now().plusDays(20);
     }
 
     private void bookReturn(){

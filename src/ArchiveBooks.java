@@ -1,5 +1,5 @@
 public class ArchiveBooks extends Book{
-    public ArchiveBooks(String name, int pages, Author author, Genre[] genres) {
-        super(name, pages, author, genres);
+    public ArchiveBooks(String name, int pages, Author author, Genre genre) {
+        super(name, pages, author, genre);
     }
 }

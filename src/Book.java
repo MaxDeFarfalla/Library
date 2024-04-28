@@ -4,21 +4,18 @@ public class Book {
     protected String name;
     protected int pages;
     protected Author author;
-    protected Genre[] genres;
+    protected Genre genre;
 
 
     //Constr
 
-    public Book(String name, int pages, Author author, Genre[] genres){
+    public Book(String name, int pages, Author author, Genre genres){
         this.name=name;
         this.pages=pages;
         this.author=author;
-        this.genres=genres;
-        for (Genre genre: genres) {
-            genre.addBook(this);
-        }
+        this.genre=genres;
 
-        library.bookHashMap.put(this.name,this);
+
 
     }
 
@@ -35,7 +32,13 @@ public class Book {
         return author;
     }
 
-    public void setDateofReturn() {
-
+    public Genre getGenre() {
+        return genre;
     }
+
+    public int getPages() {
+        return pages;
+    }
+
+
 }
