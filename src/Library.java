@@ -4,12 +4,14 @@ import java.util.Scanner;
 public class Library {
 
 
-    public static HashMap<String, Book> bookHashMap= new HashMap<>();
-    static Book book;
-    static BorrowableBook borrowableBook;
-    static String nameOfBook;
+    public HashMap<String, Book> bookHashMap= new HashMap<>();
+    private Book book = new Book("t",1,new Author("t"), new Genre[]{new Genre("t")});
+    private BorrowableBook borrowableBook;
+    private String nameOfBook;
+    private boolean b;
 
-    public static void Start() {
+
+    public void Start() {
         Scanner libScanner = new Scanner(System.in);
 
   /*
@@ -23,7 +25,7 @@ public class Library {
         Genre fantasy = new Genre("Fantasy");
 
         bookHashMap.put("LOTR" , new BorrowableBook("Lord Of The Rings", 0, new Author("JRR Tolkien"), new Genre[]{fantasy}));
-        bookHashMap.put("The Colour of magic" ,new BorrowableBook("The Colour of magic", 250, new Author("Terry Pratchett"), new Genre[]{fantasy}));
+        bookHashMap.put("THE COLOUR OF MAGIC" ,new BorrowableBook("The Colour of magic", 250, new Author("Terry Pratchett"), new Genre[]{fantasy}));
 
         System.out.println(bookHashMap);
 
@@ -46,7 +48,10 @@ public class Library {
                 case "2" -> {
                     //check if book is borrowableBook
                     isBorrowableBook();
-                    borrowBook();
+                    if (b == true){
+                        borrowBook();
+                    }
+
 
                 }
                 case "3" -> {
@@ -63,15 +68,17 @@ public class Library {
         System.out.println("Exiting...");
     }
 
-    private static void isBorrowableBook() {
+    private void isBorrowableBook() {
         if (book.getClass() == BorrowableBook.class){
             borrowableBook = (BorrowableBook) book;
 
+        } else{
+            throw new RuntimeException();
         }
     }
 
 
-   private static void borrowBook() {
+   private void borrowBook() {
         //Ask for book, use answer to get book from hashmap
         Scanner bookScanner = new Scanner(System.in);
         String answer;
@@ -84,7 +91,7 @@ public class Library {
         while (b) {
             System.out.println("What book do you want to borrow");
             System.out.println("* Type return to return *");
-            answer = bookScanner.nextLine().toLowerCase();
+            answer = bookScanner.nextLine().toUpperCase();
             nameOfBook = answer;
             book = bookHashMap.get(nameOfBook);
 

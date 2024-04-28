@@ -5,7 +5,7 @@ public class Book {
     protected int pages;
     protected Author author;
     protected Genre[] genres;
-    protected Boolean borrowable;
+
 
     //Constr
 
@@ -18,17 +18,13 @@ public class Book {
             genre.addBook(this);
         }
 
-        Library.bookHashMap.put(this.name,this);
+        library.bookHashMap.put(this.name,this);
     }
 
 
     //Meth
 
 
-    public void setBorrowable(Boolean borrowable, Class<Book> BorrowableBook) {
-        if (Book.class== BorrowableBook)
-        this.borrowable = borrowable;
-    }
 
     public String getName() {
         return name;

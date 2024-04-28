@@ -1,5 +1,6 @@
 public class Main {
     public static void main(String[] args) {
-        Library.Start();
+       Library library = new Library();
+        library.Start();
     }
 }

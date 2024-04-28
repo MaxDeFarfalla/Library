@@ -9,10 +9,7 @@ public class Genre {
         this.books = new ArrayList<Book>();
     }
 
-    public Genre(String name, ArrayList books){
-        this.name = name;
-        this.books = books;
-    }
+
 
     //Meth
 
