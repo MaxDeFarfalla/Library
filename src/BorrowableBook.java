@@ -53,6 +53,7 @@ public class BorrowableBook extends Book {
         }
 
     }
+        // Takes current date and add 20 days this makes the date of return 20 days from now
 
     public void setDateOfReturn(){
         dateOfReturn = LocalDate.now().plusDays(20);

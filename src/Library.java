@@ -74,7 +74,7 @@ public class Library {
 
         }
         else{
-
+            System.out.println("sorry this book is not borrowable");
         }
     }
 
@@ -95,7 +95,7 @@ public class Library {
             nameOfBook = answer;
             book = bookHashMap.get(nameOfBook);
 
-            if (answer.equals("return")) {
+            if ("RETURN".equals(answer)) {
                 return;
             }
 
@@ -119,6 +119,7 @@ public class Library {
 
                borrowableBook.setDateOfReturn();
                 System.out.println("Hope you enjoy - Book is to be returned at latest " + borrowableBook.getDateOfReturn());
+                System.out.println(borrowableBook.isAvailable());
 
             } else {
                 System.out.println("Have a good day");
