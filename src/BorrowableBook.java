@@ -11,6 +11,13 @@ public class BorrowableBook extends Book {
 
     //Constr
 
+
+    public BorrowableBook(String name, int pages, Author author, Genre genre) {
+        super(name, pages, author, genre);
+    }
+
+    //Meth
+
     public LocalDate getDateOfReturn() {
         return dateOfReturn;
     }
@@ -19,11 +26,6 @@ public class BorrowableBook extends Book {
         this.dateOfReturn = dateOfReturn;
     }
 
-    public BorrowableBook(String name, int pages, Author author, Genre genre) {
-        super(name, pages, author, genre);
-    }
-
-    //Meth
 
     //Checks if book is borrowable and sets returnDate if borrowed
     private void borrowBook() {
@@ -54,25 +56,9 @@ public class BorrowableBook extends Book {
 
     public void setDateOfReturn(){
         dateOfReturn = LocalDate.now().plusDays(20);
+        available = false;
     }
 
-    private void bookReturn(){
-        System.out.println("Wish to return "+ name +"?");
-        Scanner bookScanner = new Scanner(System.in);
-        String answer = bookScanner.nextLine().toLowerCase();
-
-        if (answer.equals("y") || (answer.equals("yes") && dateOfReturn.isAfter(LocalDate.now()))){
-
-            System.out.println("Thank you for Returning "+ name);
-
-        } else if (answer.equals("y") || (answer.equals("yes") && dateOfReturn.isBefore(LocalDate.now()))) {
-            System.out.println("Thank you for returning "+ name);
-            System.out.println("Return was late, 50sek fee");
-        }
-        else {
-            System.out.println("Thank you, please continue browsing");
-        }
-    }
 
     private void generateData() {
         this.name = "test";
@@ -80,10 +66,6 @@ public class BorrowableBook extends Book {
         this.pages = 1;
     }
 
-
-    public void borrow() {
-        borrowBook();
-    }
 
     public boolean isAvailable() {
         return available;

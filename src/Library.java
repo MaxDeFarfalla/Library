@@ -47,10 +47,10 @@ public class Library {
                 }
                 case "2" -> {
                     //check if book is borrowableBook
-                    isBorrowableBook();
-                    if (b == true){
+
+
                         borrowBook();
-                    }
+
 
 
                 }
@@ -74,7 +74,7 @@ public class Library {
 
         }
         else{
-            throw new RuntimeException();
+
         }
     }
 
@@ -83,7 +83,6 @@ public class Library {
         //Ask for book, use answer to get book from hashmap
         Scanner bookScanner = new Scanner(System.in);
         String answer;
-
         boolean b= true;
 
 
@@ -103,25 +102,32 @@ public class Library {
             b= false;
         }
          //Sees if the book that is to be borrowed is borrowable
-        do {
+            isBorrowableBook();
+
+       if (!borrowableBook.isAvailable()){
+           System.out.println("Not available - Have a good day");
+       }
+       System.out.println(borrowableBook.isAvailable());
+
+       if (borrowableBook.isAvailable()){
 
             System.out.println("Wish to borrow? " + borrowableBook.getName() + " of " + borrowableBook.getAuthor().getName());
+            System.out.println("y/n");
             answer = bookScanner.nextLine().toLowerCase();
 
             if (answer.equals("y") || answer.equals("yes")) {
-               borrowableBook.setDateOfReturn();
 
+               borrowableBook.setDateOfReturn();
                 System.out.println("Hope you enjoy - Book is to be returned at latest " + borrowableBook.getDateOfReturn());
+
             } else {
                 System.out.println("Have a good day");
             }
 
-        }while (borrowableBook.isAvailable());
+       }
 
 
-        if (!borrowableBook.isAvailable()){
-            System.out.println("Not available - Have a good day");
-        }
+
 
     }
 
