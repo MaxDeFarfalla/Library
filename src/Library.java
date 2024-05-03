@@ -70,8 +70,9 @@ public class Library {
 
     private void isBorrowableBook() {
         if (book.getClass() == BorrowableBook.class){
-            borrowableBook = new BorrowableBook(book.getName(),book.getPages(),book.getAuthor(), book.getGenre());
-
+            try {
+                borrowableBook = (BorrowableBook) book;
+            }catch (ClassCastException e){ }
         }
         else{
             System.out.println("sorry this book is not borrowable");
