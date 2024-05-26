@@ -72,7 +72,8 @@ public class Library {
     //Method that uses for each loop that prints out the booksHashmap
     private void writeBooks() {
 
-        System.out.println(bookHashMap.get(book.getName()));
+        System.out.println("This library currently offers these books in our collection:");
+        System.out.println(bookHashMap.keySet());
 
     }
 
