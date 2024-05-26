@@ -9,27 +9,19 @@ public class Library {
     private BorrowableBook borrowableBook;
     private String nameOfBook;
     private boolean borrowable;
-
+    User user = new User("Max");
 
     public void Start() {
         Scanner libScanner = new Scanner(System.in);
+        boolean programRunning = true;
 
-  /*
-  //test code
-     BorrowableBook b = new BorrowableBook();
-     b.borrow();
-*/
 
         //Data för tester
-
         Genre fantasy = new Genre("Fantasy");
-
         bookHashMap.put("LOTR", new BorrowableBook("Lord Of The Rings", 1, new Author("JRR Tolkien"), fantasy));
         bookHashMap.put("THE COLOUR OF MAGIC", new BorrowableBook("The Colour of magic", 250, new Author("Terry Pratchett"), fantasy));
 
-        System.out.println(bookHashMap);
 
-        boolean programRunning = true;
 
         //Checks what the user wants to do
         //Switch is used to minimize if statement due to too many options
@@ -55,6 +47,7 @@ public class Library {
 
                 }
                 case "3" -> {
+                    giveBackBook();
                 }
                 case "4" -> {
                 }
@@ -69,12 +62,19 @@ public class Library {
         System.out.println("Exiting...");
     }
 
+
+
     //Method that uses for each loop that prints out the booksHashmap
     private void writeBooks() {
 
         System.out.println("This library currently offers these books in our collection:");
         System.out.println(bookHashMap.keySet());
 
+    }
+
+    private void giveBackBook() {
+        System.out.println("You have successfully gained the book back to the collection.");
+       //Users books are registered and their return dates are set to null + made available
     }
 
     //Method for checking if the book that is to be borrowed is a borrowable book
@@ -98,6 +98,10 @@ public class Library {
             borrowable = false;
 
         }
+    }
+
+    public BorrowableBook getBorrowableBook() {
+        return borrowableBook;
     }
 
     //
@@ -159,6 +163,7 @@ public class Library {
 
             if (answer.equals("y") || answer.equals("yes")) {
                 borrowableBook.setDateOfReturn();
+                user.addBorrowedBooks(borrowableBook);
                 System.out.println("Hope you enjoy - Book is to be returned at latest " + borrowableBook.getDateOfReturn());
 
             }else {
