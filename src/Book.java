@@ -13,12 +13,11 @@ public class Book {
 
     //Constr
 
-    public Book(String name, int pages, Author author, Genre genres){
-        this.name=name;
-        this.pages=pages;
-        this.author=author;
-        this.genre=genres;
-
+    public Book(String name, int pages, Author author, Genre genres) {
+        this.name = name;
+        this.pages = pages;
+        this.author = author;
+        this.genre = genres;
 
 
     }
@@ -27,7 +26,7 @@ public class Book {
     //Meth
 
 
- //Getters and setters
+    //Getters and setters
     public String getName() {
         return name;
     }

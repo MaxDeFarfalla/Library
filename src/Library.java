@@ -22,7 +22,6 @@ public class Library {
         bookHashMap.put("THE COLOUR OF MAGIC", new BorrowableBook("The Colour of magic", 250, new Author("Terry Pratchett"), fantasy));
 
 
-
         //Checks what the user wants to do
         //Switch is used to minimize if statement due to too many options
 
@@ -63,7 +62,6 @@ public class Library {
     }
 
 
-
     //Method that uses for each loop that prints out the booksHashmap
     private void writeBooks() {
 
@@ -74,7 +72,7 @@ public class Library {
 
     private void giveBackBook() {
         System.out.println("You have successfully gained the book back to the collection.");
-       //Users books are registered and their return dates are set to null + made available
+        //Users books are registered and their return dates are set to null + made available
     }
 
     //Method for checking if the book that is to be borrowed is a borrowable book
@@ -91,7 +89,7 @@ public class Library {
             try {
                 borrowableBook = (BorrowableBook) book;
             } catch (Exception e) {
-                System.out.println("Book is not borrowable"+ e.getMessage());
+                System.out.println("Book is not borrowable" + e.getMessage());
             }
         } else {
             System.out.println("sorry this book is not borrowable");
@@ -115,34 +113,33 @@ public class Library {
         //if book does not exist the user will be returned to the choose book portion
 
         while (b) {
-            Boolean p=false;
+            Boolean p = false;
 
             //do while loop so that it runs at least once before continuing
             do {
-            System.out.println("What book do you want to borrow?");
-            System.out.println("* Type return to return *");
-            answer = bookScanner.nextLine().toUpperCase();
-            nameOfBook = answer;
-            book.name= nameOfBook;
+                System.out.println("What book do you want to borrow?");
+                System.out.println("* Type return to return *");
+                answer = bookScanner.nextLine().toUpperCase();
+                nameOfBook = answer;
+                book.name = nameOfBook;
 
 
                 if ("RETURN".equals(answer)) {
                     System.out.println("Returning...");
                     return;
                 }
-            //Checks that the book is in the hashmap, if not the user remains in the do-while loop
+                //Checks that the book is in the hashmap, if not the user remains in the do-while loop
                 //sets Book book to the book from the HashMap
-            if(bookHashMap.containsKey(book.getName().toUpperCase())){
-                p= false;
-                b = false;
-                book = bookHashMap.get(nameOfBook);
-            }
-            else{
-                System.out.println(book.getName());
-                System.out.println("no book of that name exists");
-                p=true;
+                if (bookHashMap.containsKey(book.getName().toUpperCase())) {
+                    p = false;
+                    b = false;
+                    book = bookHashMap.get(nameOfBook);
+                } else {
+                    System.out.println(book.getName());
+                    System.out.println("no book of that name exists");
+                    p = true;
                 }
-            } while(p);
+            } while (p);
 
         }
         //Sees if the book that is to be borrowed is borrowable
@@ -166,13 +163,12 @@ public class Library {
                 user.addBorrowedBooks(borrowableBook);
                 System.out.println("Hope you enjoy - Book is to be returned at latest " + borrowableBook.getDateOfReturn());
 
-            }else {
+            } else {
                 System.out.println("Have a good day");
             }
 
 
-
-        }else{
+        } else {
             System.out.println("N/A");
         }
     }

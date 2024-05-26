@@ -12,16 +12,15 @@ public class Genre {
     }
 
 
-
     //Meth
 
- // Returns the arrayList containing all books
+    // Returns the arrayList containing all books
     public ArrayList getBooks() {
         return books;
     }
 
-   public void addBook(Book book){
+    public void addBook(Book book) {
         books.add(book);
-   }
+    }
 
 }
