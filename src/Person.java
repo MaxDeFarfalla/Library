@@ -1,12 +1,12 @@
 import java.util.ArrayList;
 
 public class Person {
-    protected String name;
+    protected final String NAME;
     protected ArrayList<Book> borrowedBooks;
     protected ArrayList<Book> cart;
 
     public Person(String name) {
-        this.name = name;
+        this.NAME = name;
         borrowedBooks = new ArrayList<>();
         cart = new ArrayList<>();
     }

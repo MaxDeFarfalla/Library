@@ -72,26 +72,25 @@ public class Library {
     //Method that uses for each loop that prints out the booksHashmap
     private void writeBooks() {
 
-        for (int i = 0; i < bookHashMap.size(); i++) {
-
-            System.out.println(bookHashMap.get(i));
-        }
+        System.out.println(bookHashMap.get(book.getName()));
 
     }
 
+    //Method for checking if the book that is to be borrowed is a borrowable book
     private void isBorrowableBook() {
 
+        //checks if the book is null and throws the user back
         if (this.book == null) {
             System.out.println("does not exist");
             return;
         }
+
         //checks that the book is of the BorrowableBook class
         if (book.getClass() == BorrowableBook.class) {
             try {
                 borrowableBook = (BorrowableBook) book;
             } catch (Exception e) {
                 System.out.println("Book is not borrowable"+ e.getMessage());
-
             }
         } else {
             System.out.println("sorry this book is not borrowable");
@@ -127,7 +126,9 @@ public class Library {
                     return;
                 }
             //Checks that the book is in the hashmap, if not the user remains in the do-while loop
+                //sets Book book to the book from the HashMap
             if(bookHashMap.containsKey(book.getName().toUpperCase())){
+                p= false;
                 b = false;
                 book = bookHashMap.get(nameOfBook);
             }
@@ -142,16 +143,11 @@ public class Library {
         //Sees if the book that is to be borrowed is borrowable
         isBorrowableBook();
 
-        if (b==false) {
-            System.out.println("Not available - Have a good day");
-
-        }
-        System.out.println(borrowableBook.isAvailable());
-
         //Checks if the book is available to be borrowed
         //If the book is borrowed then the return date is put with the method setDateOfReturn
 
         if (borrowableBook.isAvailable()) {
+
 
             System.out.println("Wish to borrow? " + borrowableBook.getName() + " of " + borrowableBook.getAuthor().getName());
             System.out.println("y/n");
@@ -161,18 +157,18 @@ public class Library {
             //If yes/y the book is borrowed and its dateOfReturn is notified
 
             if (answer.equals("y") || answer.equals("yes")) {
-
                 borrowableBook.setDateOfReturn();
                 System.out.println("Hope you enjoy - Book is to be returned at latest " + borrowableBook.getDateOfReturn());
-                System.out.println(borrowableBook.isAvailable());
 
-            } else {
+            }else {
                 System.out.println("Have a good day");
             }
 
+
+
+        }else{
+            System.out.println("N/A");
         }
-
-
     }
 
 

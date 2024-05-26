@@ -1,6 +1,8 @@
 import java.util.UUID;
 
 public class Book {
+    //Inte abstarct då det gör att book kan användas i sök prosessen i library
+
     //Attr
     protected String name;
     protected int pages;
