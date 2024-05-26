@@ -1,3 +1,4 @@
+import java.util.UUID;
 
 public class Book {
     //Attr
@@ -5,6 +6,7 @@ public class Book {
     protected int pages;
     protected Author author;
     protected Genre genre;
+    protected UUID BOOKID;
 
 
     //Constr
@@ -23,7 +25,7 @@ public class Book {
     //Meth
 
 
-
+ //Getters and setters
     public String getName() {
         return name;
     }
